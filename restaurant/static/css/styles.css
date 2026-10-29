@@ -1,0 +1,9 @@
+body { font-family: Georgia, serif; margin: 0; color: #333; background: #fdfcf5; }
+header { background: #495e57; color: #f4ce14; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+header h1 { margin: 0; }
+nav a { color: #fff; margin-left: 1.2rem; text-decoration: none; }
+nav a:hover { color: #f4ce14; }
+main { max-width: 800px; margin: 2rem auto; padding: 0 1rem; min-height: 55vh; }
+footer { background: #495e57; color: #fff; text-align: center; padding: 1rem; }
+.hero { background: #495e57; color: #fff; padding: 2rem; border-radius: 8px; }
+code { background: #eee; padding: 2px 5px; border-radius: 3px; }

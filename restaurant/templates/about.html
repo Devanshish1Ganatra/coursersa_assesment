@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Little Lemon</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  <header><h1>Little Lemon</h1><nav><a href="{% url 'home' %}">Home</a><a href="{% url 'about' %}">About</a></nav></header>
+  <main>
+    <h2>About Little Lemon</h2>
+    <p>Little Lemon is owned by two Italian brothers, Mario and Adrian, who moved to the United States to pursue their shared dream of owning a restaurant.</p>
+  </main>
+  <footer><p>&copy; Little Lemon</p></footer>
+</body>
+</html>
