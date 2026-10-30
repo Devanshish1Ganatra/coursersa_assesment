@@ -7,3 +7,7 @@ main { max-width: 800px; margin: 2rem auto; padding: 0 1rem; min-height: 55vh; }
 footer { background: #495e57; color: #fff; text-align: center; padding: 1rem; }
 .hero { background: #495e57; color: #fff; padding: 2rem; border-radius: 8px; }
 code { background: #eee; padding: 2px 5px; border-radius: 3px; }
+.btn { display: inline-block; background: #f4ce14; color: #333; padding: .6rem 1.2rem; border-radius: 6px; text-decoration: none; margin-top: .5rem; }
+.menu-list { list-style: none; padding: 0; }
+.menu-list li { display: flex; justify-content: space-between; gap: 1rem; border-bottom: 1px solid #ddd; padding: .7rem 0; }
+.price { font-weight: bold; }

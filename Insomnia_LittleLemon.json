@@ -1,0 +1,285 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-10-30T00:00:00.000Z",
+  "__export_source": "insomnia.desktop.app:v2023.5.8",
+  "resources": [
+    {
+      "_id": "wrk_littlelemon",
+      "_type": "workspace",
+      "name": "Little Lemon API",
+      "scope": "collection"
+    },
+    {
+      "_id": "env_base",
+      "_type": "environment",
+      "parentId": "wrk_littlelemon",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://127.0.0.1:8000",
+        "token": "PASTE_YOUR_TOKEN_HERE"
+      }
+    },
+    {
+      "_id": "fld_main",
+      "_type": "request_group",
+      "parentId": "wrk_littlelemon",
+      "name": "Little Lemon"
+    },
+    {
+      "_id": "req_1",
+      "_type": "request",
+      "parentId": "fld_main",
+      "name": "Register user",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/users/",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "parameters": [],
+      "authentication": {},
+      "settings": {},
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"username\": \"carol\",\n  \"email\": \"carol@example.com\",\n  \"password\": \"<password>\"\n}"
+      }
+    },
+    {
+      "_id": "req_2",
+      "_type": "request",
+      "parentId": "fld_main",
+      "name": "Login (Djoser) - get auth_token",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/token/login/",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "parameters": [],
+      "authentication": {},
+      "settings": {},
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"username\": \"carol\",\n  \"password\": \"<password>\"\n}"
+      }
+    },
+    {
+      "_id": "req_3",
+      "_type": "request",
+      "parentId": "fld_main",
+      "name": "Login (DRF api-token-auth) - get token",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api-token-auth/",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "parameters": [],
+      "authentication": {},
+      "settings": {},
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"username\": \"carol\",\n  \"password\": \"<password>\"\n}"
+      }
+    },
+    {
+      "_id": "req_4",
+      "_type": "request",
+      "parentId": "fld_main",
+      "name": "List menu",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/menu/",
+      "headers": [],
+      "parameters": [],
+      "authentication": {},
+      "settings": {}
+    },
+    {
+      "_id": "req_5",
+      "_type": "request",
+      "parentId": "fld_main",
+      "name": "Create menu item",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/menu/",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Token {{ _.token }}"
+        }
+      ],
+      "parameters": [],
+      "authentication": {},
+      "settings": {},
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Greek Salad\",\n  \"price\": \"12.00\",\n  \"menu_item_description\": \"Fresh salad\"\n}"
+      }
+    },
+    {
+      "_id": "req_6",
+      "_type": "request",
+      "parentId": "fld_main",
+      "name": "Get menu item",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/menu/1/",
+      "headers": [],
+      "parameters": [],
+      "authentication": {},
+      "settings": {}
+    },
+    {
+      "_id": "req_7",
+      "_type": "request",
+      "parentId": "fld_main",
+      "name": "Update menu item",
+      "method": "PUT",
+      "url": "{{ _.base_url }}/api/menu/1/",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Token {{ _.token }}"
+        }
+      ],
+      "parameters": [],
+      "authentication": {},
+      "settings": {},
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Greek Salad\",\n  \"price\": \"13.00\",\n  \"menu_item_description\": \"Fresh salad\"\n}"
+      }
+    },
+    {
+      "_id": "req_8",
+      "_type": "request",
+      "parentId": "fld_main",
+      "name": "Delete menu item",
+      "method": "DELETE",
+      "url": "{{ _.base_url }}/api/menu/1/",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Token {{ _.token }}"
+        }
+      ],
+      "parameters": [],
+      "authentication": {},
+      "settings": {}
+    },
+    {
+      "_id": "req_9",
+      "_type": "request",
+      "parentId": "fld_main",
+      "name": "List bookings",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/bookings/",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Token {{ _.token }}"
+        }
+      ],
+      "parameters": [],
+      "authentication": {},
+      "settings": {}
+    },
+    {
+      "_id": "req_10",
+      "_type": "request",
+      "parentId": "fld_main",
+      "name": "Create booking",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/bookings/",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Token {{ _.token }}"
+        }
+      ],
+      "parameters": [],
+      "authentication": {},
+      "settings": {},
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"first_name\": \"Carol\",\n  \"reservation_date\": \"2030-11-20\",\n  \"reservation_slot\": 12\n}"
+      }
+    },
+    {
+      "_id": "req_11",
+      "_type": "request",
+      "parentId": "fld_main",
+      "name": "Get booking",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/bookings/1/",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Token {{ _.token }}"
+        }
+      ],
+      "parameters": [],
+      "authentication": {},
+      "settings": {}
+    },
+    {
+      "_id": "req_12",
+      "_type": "request",
+      "parentId": "fld_main",
+      "name": "Update booking",
+      "method": "PUT",
+      "url": "{{ _.base_url }}/api/bookings/1/",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Token {{ _.token }}"
+        }
+      ],
+      "parameters": [],
+      "authentication": {},
+      "settings": {},
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"first_name\": \"Carol\",\n  \"reservation_date\": \"2030-11-20\",\n  \"reservation_slot\": 13\n}"
+      }
+    },
+    {
+      "_id": "req_13",
+      "_type": "request",
+      "parentId": "fld_main",
+      "name": "Delete booking",
+      "method": "DELETE",
+      "url": "{{ _.base_url }}/api/bookings/1/",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Token {{ _.token }}"
+        }
+      ],
+      "parameters": [],
+      "authentication": {},
+      "settings": {}
+    }
+  ]
+}

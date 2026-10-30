@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - Little Lemon</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  <header>
+    <h1>Little Lemon</h1>
+    <nav>
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'about' %}">About</a>
+      <a href="{% url 'menu-page' %}">Menu</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Our Menu</h2>
+    {% if menu %}
+    <ul class="menu-list">
+      {% for item in menu %}
+      <li>
+        <div><strong>{{ item.name }}</strong><br><small>{{ item.menu_item_description }}</small></div>
+        <span class="price">${{ item.price }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>No menu items yet. Add some through <code>/api/menu/</code> or the admin site.</p>
+    {% endif %}
+  </main>
+  <footer><p>&copy; Little Lemon</p></footer>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Little Lemon</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  <header>
+    <h1>Little Lemon</h1>
+    <nav>
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'about' %}">About</a>
+      <a href="{% url 'menu-page' %}">Menu</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <h2>Welcome to Little Lemon</h2>
+      <p>A family-owned Mediterranean restaurant focused on traditional recipes served with a modern twist.</p>
+      <a class="btn" href="{% url 'menu-page' %}">See our menu</a>
+    </section>
+    <h3>Explore the API</h3>
+    <ul>
+      <li><a href="/api/menu/"><code>/api/menu/</code></a> &ndash; menu items (browsable API)</li>
+      <li><a href="/api/bookings/"><code>/api/bookings/</code></a> &ndash; table bookings (log in first)</li>
+      <li><code>/auth/users/</code> &ndash; register (POST)</li>
+      <li><code>/auth/token/login/</code> &ndash; Djoser token login (POST)</li>
+      <li><code>/api-token-auth/</code> &ndash; DRF token login (POST)</li>
+      <li><a href="/api-auth/login/?next=/api/bookings/">Log in to the browsable API</a></li>
+    </ul>
+  </main>
+  <footer><p>&copy; Little Lemon</p></footer>
+</body>
+</html>
